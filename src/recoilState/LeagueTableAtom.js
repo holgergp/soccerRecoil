@@ -1,7 +1,10 @@
 import { SAMPLE_LEAGUE_TABLE } from "./SampleData";
 import { atom } from "recoil";
 
-export const leagueTableState = atom({
-  key: "LeagueTableState",
-  default: SAMPLE_LEAGUE_TABLE,
-});
+export const leagueTableState = (
+  initialValueFromStorage = SAMPLE_LEAGUE_TABLE
+) =>
+  atom({
+    key: "LeagueTableState",
+    default: initialValueFromStorage,
+  });

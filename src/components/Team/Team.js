@@ -34,7 +34,7 @@ const calculatePositionCssClass = (positionNumber) => {
 const Team = (props) => {
   const { rank, team } = props;
 
-  const [positions, setPositions] = useRecoilState(leagueTableState);
+  const [positions, setPositions] = useRecoilState(leagueTableState());
 
   const updateTeamname = (t, updatedText) => {
     setPositions(
