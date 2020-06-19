@@ -4,7 +4,10 @@ import { ItemTypes } from "../../DndItemTypes";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import ContentEditable from "react-contenteditable";
-import { recalculatePositionsWithRenamedTeam } from "../LeagueTable/Positions";
+import {
+  recalculatePositionsWithRenamedTeam,
+  recalculateSwappedPositions,
+} from "../../atoms/Positions";
 import { useRecoilState } from "recoil";
 import { leagueTableState } from "../../atoms/LeagueTableAtom";
 
@@ -39,6 +42,12 @@ const Team = (props) => {
     );
   };
 
+  const swapPositions = (sourceTeamId, targetTeamId) => {
+    setPositions(
+      recalculateSwappedPositions(sourceTeamId, targetTeamId, positions)
+    );
+  };
+
   const dragReturn = useDrag({
     item: { team, type: ItemTypes.TEAM },
     end: (item, monitor) => {
@@ -47,7 +56,7 @@ const Team = (props) => {
       }
       const dragItem = monitor.getItem();
       const dropResult = monitor.getDropResult();
-      props.swapPositions(dragItem.team.id, dropResult.team.id);
+      swapPositions(dragItem.team.id, dropResult.team.id);
     },
   });
 

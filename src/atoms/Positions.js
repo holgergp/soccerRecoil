@@ -34,8 +34,6 @@ export const recalculatePositionsWithRenamedTeam = (
 
   const teamRank = findTeamRank(team.id, clonedPositions);
 
-  team.name = updatedText;
-
-  clonedPositions[teamRank - 1] = team;
+  clonedPositions[teamRank - 1] = { ...team, name: updatedText };
   return clonedPositions;
 };
