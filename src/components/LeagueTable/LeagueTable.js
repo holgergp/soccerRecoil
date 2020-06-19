@@ -4,7 +4,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Card, Col } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
-import { leagueTableState } from "../../atoms/LeagueTableAtom";
+import { leagueTableState } from "../../recoilState/LeagueTableAtom";
 
 const LeagueTable = () => {
   /**const [storedState, setStoredState] = useLocalStorage(

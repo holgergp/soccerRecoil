@@ -7,9 +7,9 @@ import ContentEditable from "react-contenteditable";
 import {
   recalculatePositionsWithRenamedTeam,
   recalculateSwappedPositions,
-} from "../../atoms/Positions";
+} from "../../recoilState/Positions";
 import { useRecoilState } from "recoil";
-import { leagueTableState } from "../../atoms/LeagueTableAtom";
+import { leagueTableState } from "../../recoilState/LeagueTableAtom";
 
 const calculatePositionCssClass = (positionNumber) => {
   if (positionNumber === 1) {
