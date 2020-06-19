@@ -1,82 +1,82 @@
 import {
   recalculateSwappedPositions,
   recalculatePositionsWithRenamedTeam,
-} from './Positions';
+} from "./Positions";
 
-describe('Positions should', () => {
+describe("Positions should", () => {
   let sampleLeague;
   beforeEach(() => {
     sampleLeague = [
       {
-        name: 'Borussia Mönchengladbach',
+        name: "Borussia Mönchengladbach",
         editing: true,
-        id: 'BMG',
+        id: "BMG",
       },
       {
-        name: 'Borussia Dortmund',
+        name: "Borussia Dortmund",
         editing: true,
-        id: 'BVB',
+        id: "BVB",
       },
       {
-        name: 'FC Bayern München',
+        name: "FC Bayern München",
         editing: true,
-        id: 'FCB',
+        id: "FCB",
       },
     ];
   });
-  it('swap two different teams', () => {
+  it("swap two different teams", () => {
     const expectedLeagueState = [
       {
-        name: 'Borussia Mönchengladbach',
+        name: "Borussia Mönchengladbach",
         editing: true,
-        id: 'BMG',
+        id: "BMG",
       },
       {
-        name: 'FC Bayern München',
+        name: "FC Bayern München",
         editing: true,
-        id: 'FCB',
+        id: "FCB",
       },
       {
-        name: 'Borussia Dortmund',
+        name: "Borussia Dortmund",
         editing: true,
-        id: 'BVB',
+        id: "BVB",
       },
     ];
 
     const updatedeague = recalculateSwappedPositions(
-      'BVB',
-      'FCB',
+      "BVB",
+      "FCB",
       sampleLeague
     );
     expect(updatedeague).toEqual(expectedLeagueState);
   });
-  it('rename a specific team in positions', () => {
+  it("rename a specific team in positions", () => {
     const team = {
-      name: 'Borussia Dortmund',
+      name: "Borussia Dortmund",
       editing: true,
-      id: 'BVB',
+      id: "BVB",
     };
     const leagueWithRenamedLeague = recalculatePositionsWithRenamedTeam(
       team,
-      'Schalke 04',
+      "Schalke 04",
       sampleLeague
     );
 
     const expectedLeagueState = [
       {
-        name: 'Borussia Mönchengladbach',
+        name: "Borussia Mönchengladbach",
         editing: true,
-        id: 'BMG',
+        id: "BMG",
       },
       {
-        name: 'Schalke 04',
+        name: "Schalke 04",
         editing: true,
-        id: 'BVB',
+        id: "BVB",
       },
       {
-        name: 'FC Bayern München',
+        name: "FC Bayern München",
         editing: true,
-        id: 'FCB',
+        id: "FCB",
       },
     ];
     expect(leagueWithRenamedLeague).toEqual(expectedLeagueState);

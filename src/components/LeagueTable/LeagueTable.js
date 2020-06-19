@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Position from '../Position/Position';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import React, { useState, useEffect } from "react";
+import Position from "../Position/Position";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import {
   recalculateSwappedPositions,
   recalculatePositionsWithRenamedTeam,
-} from './Positions';
-import { SAMPLE_LEAGUE_TABLE } from './SampleData';
-import { Card, Col } from 'react-bootstrap';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+} from "./Positions";
+import { SAMPLE_LEAGUE_TABLE } from "./SampleData";
+import { Card, Col } from "react-bootstrap";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const LeagueTable = () => {
   const [storedState, setStoredState] = useLocalStorage(
-    'LEAGUE_TABLE',
+    "LEAGUE_TABLE",
     SAMPLE_LEAGUE_TABLE
   );
 

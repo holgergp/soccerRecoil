@@ -1,27 +1,27 @@
-import { useDrag } from 'react-dnd';
-import React from 'react';
-import { ItemTypes } from '../../DndItemTypes';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import ContentEditable from 'react-contenteditable';
+import { useDrag } from "react-dnd";
+import React from "react";
+import { ItemTypes } from "../../DndItemTypes";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import ContentEditable from "react-contenteditable";
 
 const calculatePositionCssClass = (positionNumber) => {
   if (positionNumber === 1) {
-    return 'tabellenfuehrerClass tabelleClass';
+    return "tabellenfuehrerClass tabelleClass";
   }
   if (positionNumber <= 3) {
-    return 'championsLeagueClass tabelleClass';
+    return "championsLeagueClass tabelleClass";
   }
   if (positionNumber <= 6) {
-    return 'europaLeagueClass tabelleClass';
+    return "europaLeagueClass tabelleClass";
   }
   if (positionNumber <= 15) {
-    return 'mittelfeldClass tabelleClass';
+    return "mittelfeldClass tabelleClass";
   }
   if (positionNumber === 16) {
-    return 'relegationClass tabelleClass';
+    return "relegationClass tabelleClass";
   } else {
-    return 'abstiegClass tabelleClass';
+    return "abstiegClass tabelleClass";
   }
 };
 
@@ -41,9 +41,9 @@ const Team = (props) => {
   });
 
   const classes = classNames(
-    'col-md-12',
-    'btn',
-    'text-bold',
+    "col-md-12",
+    "btn",
+    "text-bold",
     calculatePositionCssClass(rank)
   );
 
@@ -52,7 +52,7 @@ const Team = (props) => {
   };
 
   return (
-    <div className={classes} style={{ cursor: 'pointer' }} ref={dragReturn[1]}>
+    <div className={classes} style={{ cursor: "pointer" }} ref={dragReturn[1]}>
       <ContentEditable
         onChange={onChange}
         className="textPointer"

@@ -1,8 +1,8 @@
-import React from 'react';
-import { useDrop } from 'react-dnd';
-import Team from '../Team/Team';
-import PropTypes from 'prop-types';
-import { ItemTypes } from '../../DndItemTypes';
+import React from "react";
+import { useDrop } from "react-dnd";
+import Team from "../Team/Team";
+import PropTypes from "prop-types";
+import { ItemTypes } from "../../DndItemTypes";
 
 const Position = (props) => {
   const team = props.team;

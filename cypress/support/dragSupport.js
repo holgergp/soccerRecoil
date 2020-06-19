@@ -4,8 +4,8 @@ function DndSimulatorDataTransfer() {
   this.data = {};
 }
 
-DndSimulatorDataTransfer.prototype.dropEffect = 'move';
-DndSimulatorDataTransfer.prototype.effectAllowed = 'all';
+DndSimulatorDataTransfer.prototype.dropEffect = "move";
+DndSimulatorDataTransfer.prototype.effectAllowed = "all";
 DndSimulatorDataTransfer.prototype.files = [];
 DndSimulatorDataTransfer.prototype.items = [];
 DndSimulatorDataTransfer.prototype.types = [];
@@ -32,7 +32,7 @@ DndSimulatorDataTransfer.prototype.getData = function (format) {
     return this.data[format];
   }
 
-  return '';
+  return "";
 };
 
 DndSimulatorDataTransfer.prototype.setDragImage = function () {

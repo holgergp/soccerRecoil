@@ -1,9 +1,9 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import { Row, Container } from 'react-bootstrap';
-import LeagueTable from './LeagueTable/LeagueTable';
-import { RecoilRoot } from 'recoil';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import { Row, Container } from "react-bootstrap";
+import LeagueTable from "./LeagueTable/LeagueTable";
+import { RecoilRoot } from "recoil";
 
 const App = () => {
   return (
