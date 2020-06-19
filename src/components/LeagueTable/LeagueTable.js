@@ -1,24 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Position from "../Position/Position";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Card, Col } from "react-bootstrap";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useTransactionObservation_UNSTABLE } from "recoil";
 import { leagueTableState } from "../../recoilState/LeagueTableAtom";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { SAMPLE_LEAGUE_TABLE } from "../../recoilState/SampleData";
 
 const LeagueTable = () => {
-  const [storedState, setStoredState] = useLocalStorage(
-    "LEAGUE_TABLE",
-    SAMPLE_LEAGUE_TABLE
+  useTransactionObservation_UNSTABLE(
+    ({ atomValues, atomInfo, modifiedAtoms }) => {
+      for (const modifiedAtom of modifiedAtoms) {
+        window.localStorage.setItem(
+          modifiedAtom,
+          JSON.stringify({ value: atomValues.get(modifiedAtom) })
+        );
+      }
+    }
   );
 
-  const positions = useRecoilValue(leagueTableState(storedState));
-
-  useEffect(() => {
-    setStoredState(positions);
-  });
+  const positions = useRecoilValue(leagueTableState);
 
   const positionNodes = positions.map((team, index) => (
     <Position team={team} rank={index + 1} key={index} />
