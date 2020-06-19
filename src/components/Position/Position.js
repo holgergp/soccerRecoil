@@ -20,7 +20,6 @@ const Position = (props) => {
 
 Position.propTypes = {
   rank: PropTypes.number.isRequired,
-  swapPositions: PropTypes.func.isRequired,
   team: PropTypes.object.isRequired,
 };
 
