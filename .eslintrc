@@ -27,7 +27,7 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }],
+    "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     "no-cond-assign": "error",
@@ -86,15 +86,7 @@
     "no-shadow": [
       "error",
       {
-        "allow": [
-          "done",
-          "next",
-          "callback",
-          "cb",
-          "e",
-          "err",
-          "error"
-        ]
+        "allow": ["done", "next", "callback", "cb", "e", "err", "error"]
       }
     ],
     "no-unused-vars": "error",
@@ -119,16 +111,10 @@
     "no-useless-rename": "error",
     "prefer-spread": "error",
     "require-yield": "error",
-    "rest-spread-spacing": [
-      "error",
-      "never"
-    ],
+    "rest-spread-spacing": ["error", "never"],
     "symbol-description": "error",
     "template-curly-spacing": "error",
-    "yield-star-spacing": [
-      "error",
-      "after"
-    ],
+    "yield-star-spacing": ["error", "after"],
     "brace-style": [
       "error",
       "1tbs",
@@ -151,40 +137,19 @@
         "after": true
       }
     ],
-    "comma-style": [
-      "error",
-      "last"
-    ],
-    "consistent-this": [
-      "error",
-      "that"
-    ],
-    "func-call-spacing": [
-      "error",
-      "never"
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "max-depth": [
-      "error",
-      3
-    ],
+    "comma-style": ["error", "last"],
+    "consistent-this": ["error", "that"],
+    "func-call-spacing": ["error", "never"],
+    "linebreak-style": ["error", "unix"],
+    "max-depth": ["error", 3],
     "max-statements": [
       "error",
       {
         "max": 20
       }
     ],
-    "complexity": [
-      "error",
-      10
-    ],
-    "max-nested-callbacks": [
-      "error",
-      4
-    ],
+    "complexity": ["error", 10],
+    "max-nested-callbacks": ["error", 4],
     "max-len": [
       "error",
       160,
@@ -197,37 +162,19 @@
     "no-trailing-spaces": "error",
     "space-infix-ops": "error",
     "space-unary-ops": "error",
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "jsx-quotes": [
-      "error",
-      "prefer-double"
-    ],
+    "quotes": "error",
+    "jsx-quotes": ["error", "prefer-double"],
     "prefer-const": "error",
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": ["error", "always"],
     "babel/no-invalid-this": "error",
-    "babel/semi": [
-      "error",
-      "always"
-    ],
+    "babel/semi": ["error", "always"],
     "react/sort-prop-types": "error",
     "react/no-will-update-set-state": "error",
     "react/jsx-curly-brace-presence": "error",
     "react/jsx-no-duplicate-props": "error",
     "no-return-await": "error",
-    "block-spacing": [
-      "error",
-      "never"
-    ],
-    "padded-blocks": [
-      "error",
-      "never"
-    ],
+    "block-spacing": ["error", "never"],
+    "padded-blocks": ["error", "never"],
     "padding-line-between-statements": [
       "error",
       {
@@ -239,40 +186,27 @@
     "no-console": [
       "warn",
       {
-        "allow": [
-          "info"
-        ]
+        "allow": ["info"]
       }
     ]
   },
   "overrides": [
     {
-      "files": [
-        "**/*.spec.js",
-        "**/*.spec.jsx"
-      ],
+      "files": ["**/*.spec.js", "**/*.spec.jsx"],
       "rules": {
         "no-console": [
           "error",
           {
-            "allow": [
-              "error"
-            ]
+            "allow": ["error"]
           }
         ],
-        "max-statements": [
-          "off"
-        ]
+        "max-statements": ["off"]
       }
     },
     {
-      "files": [
-        "**/registerServiceWorker.js"
-      ],
+      "files": ["**/registerServiceWorker.js"],
       "rules": {
-        "no-console": [
-          "off"
-        ]
+        "no-console": ["off"]
       }
     }
   ]
