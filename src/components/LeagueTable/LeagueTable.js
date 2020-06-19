@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Position from "../Position/Position";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -9,6 +9,7 @@ import {
 import { SAMPLE_LEAGUE_TABLE } from "./SampleData";
 import { Card, Col } from "react-bootstrap";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useRecoilState, atom } from "recoil";
 
 const LeagueTable = () => {
   const [storedState, setStoredState] = useLocalStorage(
@@ -16,7 +17,12 @@ const LeagueTable = () => {
     SAMPLE_LEAGUE_TABLE
   );
 
-  const [positions, setPositions] = useState(storedState);
+  const leagueTableState = atom({
+    key: "LeagueTableState",
+    default: storedState,
+  });
+
+  const [positions, setPositions] = useRecoilState(leagueTableState);
 
   const swapPositions = (sourceTeamId, targetTeamId) => {
     setPositions(

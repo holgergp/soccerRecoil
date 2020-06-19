@@ -1,8 +1,8 @@
 {
-  "name": "soccerreact16",
+  "name": "soccerrecoil",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://holgergp.github.io/soccerReact16",
+  "homepage": "https://holgergp.github.io/soccerRecoil",
   "dependencies": {
     "bootstrap": "^4.3.0",
     "enzyme": "^3.6.0",
@@ -28,7 +28,6 @@
     "deploy": "gh-pages -d build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:run:record": "cypress run --record --key f9a14ac8-4663-47e2-b669-a1d1be9626b4",
     "lint": "node_modules/.bin/eslint ./ --ext .js,.jsx",
     "lint:fix": "./node_modules/.bin/prettier --write \"+(src|cypress)/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
