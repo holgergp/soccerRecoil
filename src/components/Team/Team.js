@@ -4,6 +4,9 @@ import { ItemTypes } from "../../DndItemTypes";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import ContentEditable from "react-contenteditable";
+import { recalculatePositionsWithRenamedTeam } from "../LeagueTable/Positions";
+import { useRecoilState } from "recoil";
+import { leagueTableState } from "../../atoms/LeagueTableAtom";
 
 const calculatePositionCssClass = (positionNumber) => {
   if (positionNumber === 1) {
@@ -26,7 +29,15 @@ const calculatePositionCssClass = (positionNumber) => {
 };
 
 const Team = (props) => {
-  const { rank, team, updateTeamname } = props;
+  const { rank, team } = props;
+
+  const [positions, setPositions] = useRecoilState(leagueTableState);
+
+  const updateTeamname = (t, updatedText) => {
+    setPositions(
+      recalculatePositionsWithRenamedTeam(t, updatedText, positions)
+    );
+  };
 
   const dragReturn = useDrag({
     item: { team, type: ItemTypes.TEAM },
@@ -68,7 +79,6 @@ const Team = (props) => {
 Team.propTypes = {
   rank: PropTypes.number.isRequired,
   team: PropTypes.object.isRequired,
-  updateTeamname: PropTypes.func.isRequired,
 };
 
 export default Team;

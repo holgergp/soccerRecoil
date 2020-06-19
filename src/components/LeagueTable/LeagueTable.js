@@ -1,26 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Position from "../Position/Position";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import {
-  recalculateSwappedPositions,
-  recalculatePositionsWithRenamedTeam,
-} from "./Positions";
-import { SAMPLE_LEAGUE_TABLE } from "./SampleData";
+import { recalculateSwappedPositions } from "./Positions";
 import { Card, Col } from "react-bootstrap";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { useRecoilState, atom } from "recoil";
+import { useRecoilState } from "recoil";
+import { leagueTableState } from "../../atoms/LeagueTableAtom";
 
 const LeagueTable = () => {
-  const [storedState, setStoredState] = useLocalStorage(
+  /**const [storedState, setStoredState] = useLocalStorage(
     "LEAGUE_TABLE",
     SAMPLE_LEAGUE_TABLE
-  );
-
-  const leagueTableState = atom({
-    key: "LeagueTableState",
-    default: storedState,
-  });
+  );**/
 
   const [positions, setPositions] = useRecoilState(leagueTableState);
 
@@ -30,15 +21,9 @@ const LeagueTable = () => {
     );
   };
 
-  const updateTeamname = (team, updatedText) => {
-    setPositions(
-      recalculatePositionsWithRenamedTeam(team, updatedText, positions)
-    );
-  };
-
-  useEffect(() => {
+  /**  useEffect(() => {
     setStoredState(positions);
-  });
+  });**/
 
   const positionNodes = positions.map((team, index) => (
     <Position
@@ -46,7 +31,6 @@ const LeagueTable = () => {
       rank={index + 1}
       key={index}
       swapPositions={swapPositions}
-      updateTeamname={updateTeamname}
     />
   ));
 
