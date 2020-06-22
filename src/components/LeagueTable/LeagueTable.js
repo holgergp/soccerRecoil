@@ -12,7 +12,7 @@ const LeagueTable = () => {
       for (const modifiedAtom of modifiedAtoms) {
         window.localStorage.setItem(
           modifiedAtom,
-          JSON.stringify({ value: atomValues.get(modifiedAtom) })
+          JSON.stringify([...atomValues.get(modifiedAtom)])
         );
       }
     }

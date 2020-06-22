@@ -4,10 +4,15 @@ import "./App.css";
 import { Row, Container } from "react-bootstrap";
 import LeagueTable from "./LeagueTable/LeagueTable";
 import { RecoilRoot, getAtomWithKey } from "recoil";
+import {
+  LEAGUE_TABLE_ATOM_KEY,
+  leagueTableState,
+} from "../recoilState/LeagueTableAtom";
 
 const initializeState = ({ set }) => {
-  for (const [key, value] of Object.entries(window.localStorage)) {
-    set(getAtomWithKey(key), JSON.parse(value));
+  const localstorageValue = window.localStorage.getItem(LEAGUE_TABLE_ATOM_KEY);
+  if (localstorageValue) {
+    set(leagueTableState, JSON.parse(localstorageValue));
   }
 };
 
